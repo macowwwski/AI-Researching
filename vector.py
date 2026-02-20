@@ -6,7 +6,7 @@ from langchain_core.documents import Document
 import os
 import pandas as pd
 
-df = pd.read_csv("Informacoes_Plantio.csv") # dataframe
+df = pd.read_csv("Info_Plantio.csv") # dataframe
 embeddings = OllamaEmbeddings(model="mxbai-embed-large")
 
 db_location = "./chroma_langchain_db"
@@ -18,9 +18,26 @@ if add_documents:
 
     # PERSONALIZAR DE ACORDO COM CSV
     for i, row in df.iterrows():
+        page_content = f"""
+Cultura: {row['Cultura']}
+
+Informações de Plantio:
+- Época de Plantio: {row['EpocaPlantio']}
+- Espaçamento entre Linhas: {row['EspacamentoLinhas']}
+- Espaçamento entre Plantas: {row['EspacamentoPlantas']}
+
+Informações de Colheita:
+- Tempo até Colheita: {row['TempoColheita']}
+- Produção Esperada: {row['Producao']}
+"""     
+
         document = Document(
-            page_content=row["Cultura"] + " " + row["EpocaPlantio"],
-            metadata={"TempoColheita": row["TempoColheita"], "Producao": row["Producao"]},
+            page_content=page_content.strip(),
+            metadata={
+            "cultura": row["Cultura"],
+            "tempo_colheita": row["TempoColheita"],
+            "producao": row["Producao"]
+            },
             id=str(i)
         )
         ids.append(str(i))
@@ -38,5 +55,5 @@ if add_documents:
 
 
 retriever = vector_store.as_retriever(
-    search_kwargs={"k": 5}
+    search_kwargs={"k": 3}
 )

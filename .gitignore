@@ -1,0 +1,32 @@
+# Ambientes virtuais Python
+venv/
+.venv/
+env/
+ENV/
+
+# Banco vetorial
+chroma_langchain_db/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Variáveis de ambiente
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
