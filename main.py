@@ -7,7 +7,7 @@ model = OllamaLLM(model="llama3.2")
 template = """
   You are an expert in answering questions about agriculture
 
-  Here are relevant informations about specific species that can be planted: {info}
+  Base your answers in the following information about agricultura in Brazil's south: {info}
 
   Here is the question for you to answer: {question}   
 """
