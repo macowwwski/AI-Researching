@@ -5,9 +5,9 @@ from vector import retriever
 model = OllamaLLM(model="llama3.2")
 
 template = """
-  You are an expert in answering questions about agriculture
+  You are an expert in answering questions about agriculture in Brazil's south.
 
-  Base your answers in the following information about agricultura in Brazil's south: {info}
+  Base your answers in the following information: {info}
 
   Here is the question for you to answer: {question}   
 """
@@ -17,8 +17,8 @@ chain = prompt | model
 
 while True:
     print("n\n---------------------------------------------")
-    question = input("Ask your question (q to quit): ")
-    if question == "q":
+    question = input("Faça uma pergunta (S para Sair): ")
+    if question == "S" or question == "s":
         break         
 
     info = retriever.invoke(question)

@@ -1,3 +1,6 @@
 langchain
 langchain-ollama
 langchain-chroma
+mcp
+httpx
+python-dotenv
