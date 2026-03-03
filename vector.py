@@ -7,7 +7,7 @@ import os
 import pandas as pd
 
 # Ler CSV
-df = pd.read_csv("Info_Plantio.csv")  # Ajuste o nome se necessário
+df = pd.read_csv("Info_Plantio.csv")
 print(f"CSV carregado: {len(df)} culturas encontradas")
 
 # Configurar embeddings
@@ -74,26 +74,3 @@ retriever = vector_store.as_retriever(
 )
 
 print("✓ Retriever configurado e pronto!")
-
-# TESTE (executar só quando rodar este arquivo diretamente)
-if __name__ == "__main__":
-    print("\n" + "="*60)
-    print("TESTE DO SISTEMA RAG")
-    print("="*60)
-    
-    test_questions = [
-        "Qual o espaçamento entre linhas para alho?",
-        "Quanto tempo leva para colher abóbora?"
-    ]
-    
-    for question in test_questions:
-        print(f"\n❓ Pergunta: {question}")
-        results = retriever.invoke(question)
-        
-        if results:
-            print(results)
-            print(f"✓ Encontrados {len(results)} resultado(s)")
-            print(f"📄 Melhor resultado:")
-            print(results[0].page_content[:200] + "...")
-        else:
-            print("❌ Nenhum resultado encontrado!")
