@@ -7,7 +7,7 @@ import os
 import pandas as pd
 
 # Ler CSV
-df = pd.read_csv("Info_Plantio.csv") 
+df = pd.read_csv("Info_Plantio.csv")
 print(f"CSV carregado: {len(df)} culturas encontradas")
 
 # Configurar embeddings

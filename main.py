@@ -17,7 +17,7 @@ chain = prompt | model
 
 while True:
     print("n\n---------------------------------------------")
-    question = input("Faça uma pergunta (S para Sair): ")
+    question = input("Faça uma pergunta sobre agricultura (S para sair): ")
     if question == "S" or question == "s":
         break         
 
