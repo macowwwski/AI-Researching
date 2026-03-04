@@ -10,7 +10,7 @@ from mcp.client.stdio import stdio_client
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
-SERVER_PATH = SCRIPT_DIR / "weather_MCP_server.py"
+SERVER_PATH = SCRIPT_DIR / "weather_mcp_server.py"
 
 class WeatherMCPClient:
     """Cliente para se comunicar com o Weather MCP Server"""

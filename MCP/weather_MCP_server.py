@@ -5,10 +5,13 @@ Fornece informações climáticas em tempo real para recomendações de plantio
 
 import asyncio
 import os
+from dotenv import load_dotenv
 import httpx
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import Tool, TextContent
+
+load_dotenv()
 
 # Configuração da API 
 OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY", "")
