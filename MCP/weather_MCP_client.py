@@ -3,9 +3,14 @@ Cliente MCP para integrar dados climáticos ao sistema RAG
 """
 
 import asyncio
+import os
 import json
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
+from pathlib import Path
+
+SCRIPT_DIR = Path(__file__).parent
+SERVER_PATH = SCRIPT_DIR / "weather_MCP_server.py"
 
 class WeatherMCPClient:
     """Cliente para se comunicar com o Weather MCP Server"""
@@ -18,7 +23,7 @@ class WeatherMCPClient:
         """Conecta ao servidor MCP"""
         server_params = StdioServerParameters(
             command="python",
-            args=["weather_mcp_server.py"],
+            args=[str(SERVER_PATH)],
             env=None
         )
         
